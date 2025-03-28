@@ -8,7 +8,7 @@
 @property --lines {
   syntax: "<length>";
   inherits: false;
-  initial-value: 0.00010px;
+  initial-value:0.00010px;
 }
 
 /* 
@@ -21,6 +21,11 @@
     --lines: 0.00012px;
   }
 }
+@keyframes liner2 {
+    50% {
+      --lines: 2px;
+    }
+  }
 
 @layer demo {
   .noise {
@@ -84,6 +89,41 @@
   
     /* Анімація маски */
     animation: liner var(--hour) linear infinite;
+  
+    /* Маска на зображення */
+    -webkit-mask-image: repeating-radial-gradient(
+      circle at center,
+      #000,
+      var(--lines),
+      #000,
+      0,
+      #0000,
+      calc(var(--lines) * 2),
+      #0000 0
+    );
+  
+    mask-image: repeating-radial-gradient(
+      circle at center,
+      #000,
+      var(--lines),
+      #000,
+      0,
+      #0000,
+      calc(var(--lines) * 2),
+      #0000 0
+    );
+  }
+  .noize-box2 {
+    width: 500px;
+    height: 400px;
+    background-image: url(./title-notch-warez-2\ 1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: auto;
+  
+    /* Анімація маски */
+    animation: liner2 var(--hour) linear infinite;
   
     /* Маска на зображення */
     -webkit-mask-image: repeating-radial-gradient(
